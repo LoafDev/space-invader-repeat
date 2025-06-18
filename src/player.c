@@ -10,13 +10,13 @@ void clamp(float min_val, float max_val, float *cur_val) {
     if (*cur_val >= max_val) { *cur_val = max_val; }
 }
 
-void draw(Player *player) {
+void draw_snake(Player *player) {
     for (int i=0; i < player->body; i++) {
         DrawRectangle(player->pos.x, player->pos.y, SIZE.x, SIZE.y, GREEN);
     }
 }
 
-void movement(Player *player, float delta) {
+void movement_snake(Player *player, float delta) {
     if (IsKeyPressed(KEY_W)) { player->dir = Up; }
     else if (IsKeyPressed(KEY_S)) { player->dir = Down; }
     else if (IsKeyPressed(KEY_A)) { player->dir = Left; }

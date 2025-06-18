@@ -16,7 +16,7 @@ typedef struct {
     int body;
 } Player;
 
-void draw(Player *player);
-void movement(Player *player, float delta);
+void draw_snake(Player *player);
+void movement_snake(Player *player, float delta);
 
 #endif
