@@ -1,20 +1,24 @@
 #include "raylib.h"
-#include "include/apple.h" 
+#include"include/entry.h"
 
 int main()
 {
-    InitWindow(900, 900, "Snake");
+    InitWindow(WIDTH, HEIGHT, "Snake");
     SetTargetFPS(60);
 
     Color green = {0, 255, 166, 255};
     struct Apple apple;
+    Player player = { (Vector2){ 0,0 }, 0, Down };
 
     while (!WindowShouldClose())
     {
+        float delta = GetFrameTime();
+
+        movement_snake(&player, delta);
+
         BeginDrawing();
-
-        ClearBackground(green);
-
+            ClearBackground(green);
+            draw_snake(&player);
         EndDrawing();
     }
 

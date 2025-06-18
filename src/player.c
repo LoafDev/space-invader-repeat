@@ -39,22 +39,3 @@ void movement_snake(Player *player, float delta) {
     clamp(0, 900 - SIZE.x, &player->pos.x);
     clamp(0, 900 - SIZE.y, &player->pos.y);
 }
-
-// for testing
-/* int main() {
-    InitWindow(900, 900, "test");
-    SetTargetFPS(60);
-    Player player = { (Vector2){0,0}, Down, 1 };
-
-    while (!WindowShouldClose()) {
-        float delta = GetFrameTime();
-        movement(&player, delta);
-
-        BeginDrawing();
-        ClearBackground(WHITE);
-        draw(&player);
-        EndDrawing();
-    }
-    CloseWindow();
-    return 0;
-} */
