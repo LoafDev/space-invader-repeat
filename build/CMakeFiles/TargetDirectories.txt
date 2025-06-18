@@ -1,0 +1,3 @@
+C:/Users/Tu/Desktop/space-invader-repeat/build/CMakeFiles/game.dir
+C:/Users/Tu/Desktop/space-invader-repeat/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Tu/Desktop/space-invader-repeat/build/CMakeFiles/ZERO_CHECK.dir

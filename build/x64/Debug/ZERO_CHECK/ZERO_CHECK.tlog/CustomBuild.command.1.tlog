@@ -1,0 +1,10 @@
+^C:\USERS\TU\DESKTOP\SPACE-INVADER-REPEAT\BUILD\CMAKEFILES\B3A310013BD94EB9795FB811ACB0405E\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/Tu/Desktop/space-invader-repeat -BC:/Users/Tu/Desktop/space-invader-repeat/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Tu/Desktop/space-invader-repeat/build/Space_Invader_Repeat.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
