@@ -4,23 +4,21 @@
 int main()
 {
     InitWindow(WIDTH, HEIGHT, "Snake");
-    SetTargetFPS(5);
+    SetTargetFPS(4);
 
     Color green = {0, 255, 166, 255};
     struct Apple apple;
-    Player player = { (Vector2){ 0,0 }, 0, Down };
+    struct Snake snake; init_snake(&snake);
 
     while (!WindowShouldClose())
     {
         float delta = GetFrameTime();
 
-        movement_snake(&player, delta);
+        update_snake(&snake);
 
         BeginDrawing();
-
             ClearBackground(green);
-            draw_snake(&player);
-
+            draw_snake(&snake);
         EndDrawing();
     }
 

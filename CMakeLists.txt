@@ -15,7 +15,5 @@ set(SOURCES
   src/apple.c
 )
 
-
-
 add_executable(game ${SOURCES})
 target_link_libraries(game raylib winmm)

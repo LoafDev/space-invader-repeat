@@ -1,22 +1,16 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include<raylib.h>
+#include "raylib.h"
+struct Snake
+{
+    Vector2 direction;
+    Vector2 *body;
+    int body_size;
+};
 
-typedef enum {
-    Left,
-    Right,
-    Up,
-    Down
-} Direction;
-
-typedef struct {
-    Vector2 pos;
-    Direction dir;
-    int body;
-} Player;
-
-void draw_snake(Player *player);
-void movement_snake(Player *player, float delta);
+void init_snake(struct Snake *snake);
+void draw_snake(struct Snake *snake);
+void update_snake(struct Snake *snake);
 
 #endif

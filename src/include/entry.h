@@ -4,7 +4,8 @@
 #include"apple.h"
 #include"snake.h"
 
-const int HEIGHT = 900;
-const int WIDTH = 900;
+static const float SIZE = 36.0f;
+static const int HEIGHT = 900;
+static const int WIDTH = 900;
 
 #endif
