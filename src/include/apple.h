@@ -7,7 +7,7 @@ struct Apple
     int x, y;
 };
 
-void get_random_position(struct Apple *apple);
-void draw(struct Apple *apple);
+void get_random_position_apple(struct Apple *apple);
+void draw_apple(struct Apple *apple);
 
 #endif
