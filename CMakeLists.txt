@@ -16,4 +16,9 @@ set(SOURCES
 )
 
 add_executable(game ${SOURCES})
-target_link_libraries(game raylib winmm)
+
+if(WIN32)
+    target_link_libraries(game raylib winmm)
+else()
+    target_link_libraries(game raylib)
+endif()
