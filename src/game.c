@@ -8,7 +8,8 @@ int main()
 
     Color green = {0, 255, 166, 255};
     struct Apple apple;
-    Player player = { (Vector2){ 0,0 }, 0, Down };
+    struct Snake snake;
+    init_snake(&snake);
 
     while (!WindowShouldClose())
     {
