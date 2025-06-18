@@ -1,4 +1,4 @@
-#include "include/snake.h"
+#include "include/entry.h"
 #include <stdlib.h>
 
 void draw_snake(struct Snake *snake)

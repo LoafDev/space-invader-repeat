@@ -2,8 +2,6 @@
 #define SNAKE_H
 
 #include "raylib.h"
-static const float SIZE = 36.0f;
-
 struct Snake
 {
     Vector2 direction;
