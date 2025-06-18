@@ -4,7 +4,7 @@
 int main()
 {
     InitWindow(WIDTH, HEIGHT, "Snake");
-    SetTargetFPS(4);
+    SetTargetFPS(5);
 
     Color green = {0, 255, 166, 255};
     struct Apple apple;
@@ -18,8 +18,10 @@ int main()
         movement_snake(&player, delta);
 
         BeginDrawing();
+
             ClearBackground(green);
             draw_snake(&player);
+
         EndDrawing();
     }
 
