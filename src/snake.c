@@ -1,37 +1,75 @@
 #include "include/entry.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 void draw_snake(struct Snake *snake)
 {
     Color dark_green = {2, 125, 47, 255};
+    
+    DrawRectangleRounded((Rectangle){snake->head.x, snake->head.y, SIZE, SIZE},
+                         0.3f, 
+                         20, 
+                         dark_green);
+
     for (int i = 0; i < snake->body_size; ++i)
     {
-        Rectangle rect = {(float)snake->body[i].x, (float)snake->body[i].y, SIZE, SIZE};
-        DrawRectangleRounded(rect, 0.3f, 20, dark_green);
+        Rectangle rect = {(float)snake->body[i].x,
+                          (float)snake->body[i].y, 
+                          SIZE, 
+                          SIZE};
+        DrawRectangleRounded(rect,
+                             0.3f,
+                             20, 
+                             dark_green);
     }
 }
 
 void init_snake(struct Snake *snake)
 {
     // facing up
-    Vector2 direction = { 0, -SIZE };
+    snake -> direction = (Vector2){ 0, -SIZE };
 
-    // Starting at 2 parts
+    // Starting at 1 parts
     snake->body = (Vector2 *) calloc(2, sizeof(Vector2));
     snake->body_size = 2;
 
     // Two body parts in the middle of the window
-    Vector2 vec1 = {432, 432};
-    Vector2 vec2 = {432, 468};
-    snake->body[0] = vec1;
-    snake->body[1] = vec2;
+    snake->head = (Vector2){WIDTH / 2 - SIZE / 2, HEIGHT / 2 - SIZE / 2};
+    snake->body[0] = (Vector2){snake->head.x, snake->head.y + 2*SIZE};  // Initial body part above the head
+    snake->body[1] = (Vector2){snake->head.x, snake->head.y + SIZE};  // Initial body part below the head
 }
 
 void update_snake(struct Snake *snake)  // Moving the snake
 {
-    for (int i = 0; i < snake->body_size; ++i)
+
+    for (int i = snake->body_size - 1; i > 0; --i)
     {
-        snake->body[i].x += snake->direction.x;
-        snake->body[i].y += snake->direction.y;
+        snake->body[i].x = snake->body[i-1].x;
+        snake->body[i].y = snake->body[i-1].y;
+    }
+    snake->body[0].x = snake->head.x;
+    snake->body[0].y = snake->head.y;
+    snake->head.x += snake->direction.x;
+    snake->head.y += snake->direction.y;
+    printf("direction: (%f, %f)\n", snake->direction.x, snake->direction.y);
+}
+
+void movement_snake(struct Snake *snake)
+{
+    if (IsKeyPressed(KEY_UP) && snake->direction.y == 0)
+    {
+        snake->direction = (Vector2){0, -SIZE};
+    }
+    else if (IsKeyPressed(KEY_DOWN) && snake->direction.y == 0)
+    {
+        snake->direction = (Vector2){0, SIZE};
+    }
+    else if (IsKeyPressed(KEY_LEFT) && snake->direction.x == 0)
+    {
+        snake->direction = (Vector2){-SIZE, 0};
+    }
+    else if (IsKeyPressed(KEY_RIGHT) && snake->direction.x == 0)
+    {
+        snake->direction = (Vector2){SIZE, 0};
     }
 }
