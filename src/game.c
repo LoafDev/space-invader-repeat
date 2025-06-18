@@ -4,7 +4,7 @@
 int main()
 {
     InitWindow(WIDTH, HEIGHT, "Snake");
-    SetTargetFPS(60);
+    SetTargetFPS(4);
 
     Color green = {0, 255, 166, 255};
     struct Apple apple;
