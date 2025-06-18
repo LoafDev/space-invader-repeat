@@ -8,6 +8,7 @@ include_directories(src/include)
 set(SOURCES
   src/game.c
   src/player.c
+  src/apple.c
 )
 
 add_executable(game ${SOURCES})
