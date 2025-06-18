@@ -11,7 +11,7 @@ endif()
 
 set(SOURCES
   src/game.c
-  src/player.c
+  src/snake.c
   src/apple.c
 )
 
