@@ -8,4 +8,6 @@ static const float SIZE = 36.0f;
 static const int HEIGHT = 900;
 static const int WIDTH = 900;
 
+void clamp(float *val, float minv, float maxv);
+
 #endif
