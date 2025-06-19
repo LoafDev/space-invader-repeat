@@ -1,7 +1,9 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include "entry.h"
+#include "raylib.h"
+#include "apple.h"
+#include "gamestate.h"
 
 struct Snake
 {

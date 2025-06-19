@@ -4,8 +4,8 @@
 #include"apple.h"
 #include"snake.h"
 #include "raylib.h"
+#include "gamestate.h"
 
-typedef enum { MENU= 0, GAMEPLAY, PAUSE, END } GameScreen;
 static const float SIZE = 36.0f;
 static const int HEIGHT = 900;
 static const int WIDTH = 900;

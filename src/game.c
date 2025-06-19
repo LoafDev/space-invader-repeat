@@ -72,12 +72,13 @@ int main()
                 case GAMEPLAY:
                 {
                     TimeToUpdate += delta;
+                    movement_snake(&snake);
                     if (TimeToUpdate >= UPDATE_FRAME_RATE) {
                         TimeToUpdate = 0.0f;
                         snake_eats_apple(&apple, &snake);
                         update_snake(&snake);
+                        snake_eats_snake(&snake, &currentScreen);
                     }
-                    movement_snake(&snake);
                     draw_apple(&apple);
                     draw_snake(&snake);
                 } break;
