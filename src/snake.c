@@ -101,7 +101,6 @@ void movement_snake(struct Snake *snake)
     {
         snake->direction = (Vector2){SIZE, 0};
     }
-    return false;
 }
 
 void DebugSnake(struct Snake *snake)
