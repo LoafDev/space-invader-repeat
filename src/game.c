@@ -12,17 +12,17 @@ int main()
     float TimeToUpdate = 0.0f;
 
     init_snake(&snake);
+    get_random_position_apple(&apple);
 
     while (!WindowShouldClose())
     {
         float delta = GetFrameTime();
         TimeToUpdate += delta;
 
-
         if (TimeToUpdate >= UPDATE_FRAME_RATE) {
             TimeToUpdate = 0.0f;
-            get_random_position_apple(&apple);
             update_snake(&snake);
+            snake_eats_apple(&apple, &snake);
         }
         movement_snake(&snake);
 
