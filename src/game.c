@@ -19,6 +19,15 @@ int main()
     int high_score; 
     
     FILE *high_score_ptr = fopen("high_score.txt", "r+");
+
+    if (high_score_ptr == NULL)
+    {
+        high_score_ptr = fopen("high_score.txt", "w+");
+        fprintf(high_score_ptr, "0");
+        fflush(high_score_ptr);
+        rewind(high_score_ptr);
+    } 
+
     fscanf(high_score_ptr, "%d", &high_score);
     
     while (!WindowShouldClose())
