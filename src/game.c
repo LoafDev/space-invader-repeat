@@ -13,8 +13,10 @@ int main()
 
     Color green = {0, 255, 166, 255};
     struct Apple apple;
-    struct Snake snake; init_snake(&snake);
+    struct Snake snake; 
     float TimeToUpdate = 0.0f;
+
+    init_snake(&snake);
 
     while (!WindowShouldClose())
     {
