@@ -119,6 +119,8 @@ int main()
         EndDrawing();
     }
 
+    fclose(high_score_ptr);
+
     CloseWindow();
     return 0;
 }
