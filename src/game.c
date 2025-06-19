@@ -1,14 +1,14 @@
 #include "raylib.h"
 #include"include/entry.h"
 
-struct Apple apple;
-struct Snake snake; 
-float TimeToUpdate = 0.0f;
-Image Screenshot;
-Texture2D BlurTex;
-
 int main()
-{
+{   
+    struct Apple apple;
+    struct Snake snake; 
+    float TimeToUpdate = 0.0f;
+    Image Screenshot;
+    Texture2D BlurTex;
+    
     SetTargetFPS(60);
     InitWindow(WIDTH, HEIGHT, "Snake");
     GameScreen currentScreen = MENU;
