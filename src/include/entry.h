@@ -1,9 +1,12 @@
 #ifndef ENTRY_H
 #define ENTRY_H
 
-#include"apple.h"
-#include"snake.h"
+#include "apple.h"
+#include "snake.h"
 #include "raylib.h"
+#include "raymath.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef enum { MENU= 0, GAMEPLAY, PAUSE, END } GameScreen;
 static const float SIZE = 36.0f;

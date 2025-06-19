@@ -1,7 +1,10 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include "entry.h"
+#include "raylib.h"
+#include "raymath.h"
+
+typedef enum GameScreen GameScreen;
 
 struct Snake
 {
@@ -17,6 +20,6 @@ void update_snake(struct Snake *snake);
 void movement_snake(struct Snake *snake);
 void DebugSnake(struct Snake *snake);
 void expand_snake(struct Snake *snake);
-void snake_eats_snake(struct Snake *snake, GameScreen *current_screen);
+void snake_eats_snake(struct Snake *snake, struct GameScreen *current_screen);
 
 #endif
