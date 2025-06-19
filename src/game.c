@@ -31,26 +31,22 @@ int main()
             TimeToUpdate += delta;
             if (TimeToUpdate >= UPDATE_FRAME_RATE) {
                 TimeToUpdate = 0.0f;
-                get_random_position_apple(&apple);
                 update_snake(&snake);
+                snake_eats_apple(&apple, &snake);
             }
             movement_snake(&snake);
             
-        } else {
-            if (IsKeyPressed(KEY_D)) {
-                //DebugSnake(&snake);
-            }
         }
+        //else {if (IsKeyPressed(KEY_D)) { DebugSnake(&snake);} }
 
         BeginDrawing();
             ClearBackground(WHITE);
-            draw_snake(&snake);
             draw_apple(&apple);
+            draw_snake(&snake);
             if (Is_Paused) {
                 DrawText("Game Paused", WIDTH / 2 - MeasureText("Game Paused", 20) / 2, HEIGHT / 2 - 10, 20, RED);
             }
         EndDrawing();
-
     }
 
     CloseWindow();
