@@ -118,19 +118,19 @@ void update_snake(struct Snake *snake)  // Moving the snake
 
 void movement_snake(struct Snake *snake)
 {
-    if (IsKeyPressed(KEY_UP) && snake->direction.y == 0)
+    if (IsKeyPressed(KEY_UP) && snake->direction.y == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){0, -SIZE})))
     {
         snake->direction = (Vector2){0, -SIZE};
     }
-    else if (IsKeyPressed(KEY_DOWN) && snake->direction.y == 0)
+    else if (IsKeyPressed(KEY_DOWN) && snake->direction.y == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){0, SIZE})))
     {
         snake->direction = (Vector2){0, SIZE};
     }
-    else if (IsKeyPressed(KEY_LEFT) && snake->direction.x == 0)
+    else if (IsKeyPressed(KEY_LEFT) && snake->direction.x == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){-SIZE, 0})))
     {
         snake->direction = (Vector2){-SIZE, 0};
     }
-    else if (IsKeyPressed(KEY_RIGHT) && snake->direction.x == 0)
+    else if (IsKeyPressed(KEY_RIGHT) && snake->direction.x == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){SIZE, 0})))
     {
         snake->direction = (Vector2){SIZE, 0};
     }
@@ -160,7 +160,7 @@ void snake_eats_snake(struct Snake *snake, GameScreen *current_screen)
     {
         if (Vector2Equals(snake->head, snake->body[i]))
         {
-            *current_screen = END;
+            *current_screen = (GameScreen)END;
             return;
         }
     }

@@ -2,9 +2,8 @@
 #define SNAKE_H
 
 #include "raylib.h"
-#include "raymath.h"
-
-typedef enum GameScreen GameScreen;
+#include "apple.h"
+#include "gamestate.h"
 
 struct Snake
 {
