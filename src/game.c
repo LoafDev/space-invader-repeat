@@ -2,29 +2,20 @@
 #include"include/entry.h"
 
 //----------------------------------------------------------------------------------
-// Types and Structures Definition
-//----------------------------------------------------------------------------------
-typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
-Color green = {0, 255, 166, 255};
-struct Apple apple;
-struct Snake snake; 
-float TimeToUpdate = 0.0f;
-bool Is_Paused = false;
-Image Screenshot;
-Texture2D BlurTex;
-
-//----------------------------------------------------------------------------------
 // Main entry point
 //----------------------------------------------------------------------------------
 int main()
 {
-    //--------------------------------------------------------------------------------------
-    // Initialize all 
-    //--------------------------------------------------------------------------------------
+    struct Apple apple;
+    struct Snake snake; 
+    bool Is_Paused = false;
+    Image Screenshot;
+    Texture2D BlurTex;
+    float TimeToUpdate = 0.0f;
+    
     SetTargetFPS(60);
     InitWindow(WIDTH, HEIGHT, "Snake");
-    GameScreen currentScreen = LOGO;
-
+    GameScreen currentScreen = MENU;
     init_snake(&snake);
     get_random_position_apple(&apple);
 
@@ -40,7 +31,7 @@ int main()
             TimeToUpdate += delta;
             if (TimeToUpdate >= UPDATE_FRAME_RATE) {
                 TimeToUpdate = 0.0f;
-                get_random_position_apple(&apple);
+                snake_eats_apple(&apple, &snake);
                 update_snake(&snake);
             }
             movement_snake(&snake);

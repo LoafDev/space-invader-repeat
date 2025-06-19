@@ -5,7 +5,7 @@
 
 struct Apple
 {
-    int x, y;
+    float x, y;
 };
 
 void get_random_position_apple(struct Apple *apple);
