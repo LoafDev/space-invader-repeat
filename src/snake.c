@@ -36,23 +36,41 @@ void init_snake(struct Snake *snake)
     // Two body parts in the middle of the window
     
     snake->head = (Vector2){WIDTH / 2 - SIZE / 2, HEIGHT / 2 - SIZE / 2};
-    snake->body[0] = (Vector2){snake->head.x, snake->head.y + 2*SIZE};  // Initial body part above the head
-    snake->body[1] = (Vector2){snake->head.x, snake->head.y + SIZE};  // Initial body part below the head
+    for (int i=0; i < snake->body_size; i++) {
+        snake->body[i] = (Vector2){ snake->head.x, snake->head.y + i * SIZE };
+    }
 }
 
-void update_snake(struct Snake *snake)  // Moving the snake
-{
-
+void normal_movement(struct Snake *snake) {
     for (int i = snake->body_size - 1; i > 0; --i)
     {
+        snake->body[i].x += snake->direction.x;
+        snake->body[i].y += snake->direction.y;
+
+
         snake->body[i].x = snake->body[i-1].x;
         snake->body[i].y = snake->body[i-1].y;
     }
     snake->body[0].x = snake->head.x;
     snake->body[0].y = snake->head.y;
+
     snake->head.x += snake->direction.x;
     snake->head.y += snake->direction.y;
-    // printf("direction: (%f, %f)\n", snake->direction.x, snake->direction.y);
+}
+
+void update_snake(struct Snake *snake)  // Moving the snake
+{
+    // check head's out of bound movement
+    if (snake->head.x <= 0 || snake->head.x >= WIDTH - SIZE || snake->head.y <= 0 || snake->head.y >- HEIGHT - SIZE) {
+        snake->head.x += snake->direction.x;
+        snake->head.y += snake->direction.y;
+
+        clamp(&snake->head.x, 0, WIDTH - SIZE);
+        clamp(&snake->head.y, 0, HEIGHT - SIZE);
+    }
+    else {
+        normal_movement(snake);
+    }
 }
 
 void movement_snake(struct Snake *snake)
