@@ -127,6 +127,6 @@ void DebugSnake(struct Snake *snake)
 
 void expand_snake(struct Snake *snake) {
     snake->body = (Vector2 *) realloc(snake->body, (snake->body_size + 1) * sizeof(Vector2));
-    snake->body[snake->body_size] = Vector2Add(snake->body[snake->body_size - 1], (Vector2){-1 * snake->direction.x, -1 * snake->direction.y});
+    snake->body[snake->body_size] = snake->body[snake->body_size - 1];
     ++(snake->body_size);
 }
