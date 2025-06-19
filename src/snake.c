@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "raymath.h"
-#include "include/apple.h"
 
 void draw_snake(struct Snake *snake)
 {
@@ -155,4 +154,16 @@ void expand_snake(struct Snake *snake) {
     snake->body = (Vector2 *) realloc(snake->body, (snake->body_size + 1) * sizeof(Vector2));
     snake->body[snake->body_size] = snake->body[snake->body_size - 1];
     ++(snake->body_size);
+}
+
+void snake_eats_snake(struct Snake *snake, GameScreen *current_screen)
+{
+    for (int i = 0; i < snake->body_size; ++i)
+    {
+        if (Vector2Equals(snake->head, snake->body[i]))
+        {
+            *current_screen = END;
+            return;
+        }
+    }
 }

@@ -1,8 +1,7 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include "raylib.h"
-#include "apple.h"
+#include "entry.h"
 
 struct Snake
 {
@@ -18,5 +17,6 @@ void update_snake(struct Snake *snake);
 void movement_snake(struct Snake *snake);
 void DebugSnake(struct Snake *snake);
 void expand_snake(struct Snake *snake);
+void snake_eats_snake(struct Snake *snake, GameScreen *curren_screen);
 
 #endif
