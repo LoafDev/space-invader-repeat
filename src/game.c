@@ -1,9 +1,6 @@
 #include "raylib.h"
 #include"include/entry.h"
 
-//----------------------------------------------------------------------------------
-// Types and Structures Definition
-//----------------------------------------------------------------------------------
 typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
 Color green = {0, 255, 166, 255};
 struct Apple apple;
@@ -13,14 +10,8 @@ bool Is_Paused = false;
 Image Screenshot;
 Texture2D BlurTex;
 
-//----------------------------------------------------------------------------------
-// Main entry point
-//----------------------------------------------------------------------------------
 int main()
 {
-    //--------------------------------------------------------------------------------------
-    // Initialize all 
-    //--------------------------------------------------------------------------------------
     SetTargetFPS(60);
     InitWindow(WIDTH, HEIGHT, "Snake");
     GameScreen currentScreen = LOGO;
@@ -47,10 +38,9 @@ int main()
             
         } else {
             if (IsKeyPressed(KEY_D)) {
-                DebugSnake(&snake);
+                //DebugSnake(&snake);
             }
         }
-
 
         BeginDrawing();
             ClearBackground(WHITE);
