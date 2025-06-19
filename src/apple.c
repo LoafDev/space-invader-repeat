@@ -1,5 +1,4 @@
 #include "include/entry.h"
-#include "include/snake.h"
 #include "raylib.h"
 
 void get_random_position_apple(struct Apple *apple)
