@@ -6,12 +6,48 @@
 
 void draw_snake(struct Snake *snake)
 {
-    Color dark_green = {2, 125, 47, 255};
-    
-    DrawRectangleRounded((Rectangle){snake->head.x, snake->head.y, SIZE, SIZE},
-                         0.3f, 
-                         20, 
-                         dark_green);
+    DrawRectangleRounded(
+        (Rectangle){snake->head.x, snake->head.y, SIZE, SIZE},
+        0.3f,
+        20,
+        BLUE
+    );
+
+    float eyeRadius = SIZE * 0.1f;
+    float eyeOffsetX = SIZE * 0.2f;
+    float eyeOffsetY = SIZE * 0.25f;
+    float leftEyeX, leftEyeY, rightEyeX, rightEyeY;
+
+    if (snake->direction.x > 0) { // Right
+        leftEyeX = snake->head.x + SIZE - eyeOffsetX;
+        leftEyeY = snake->head.y + eyeOffsetY;
+        rightEyeX = snake->head.x + SIZE - eyeOffsetX;
+        rightEyeY = snake->head.y + SIZE - eyeOffsetY;
+    } else if (snake->direction.x < 0) { // Left
+        leftEyeX = snake->head.x + eyeOffsetX;
+        leftEyeY = snake->head.y + eyeOffsetY;
+        rightEyeX = snake->head.x + eyeOffsetX;
+        rightEyeY = snake->head.y + SIZE - eyeOffsetY;
+    } else if (snake->direction.y > 0) { // Down
+        leftEyeX = snake->head.x + eyeOffsetX;
+        leftEyeY = snake->head.y + SIZE - eyeOffsetX;
+        rightEyeX = snake->head.x + SIZE - eyeOffsetX;
+        rightEyeY = snake->head.y + SIZE - eyeOffsetX;
+    } else { // Up or default
+        leftEyeX = snake->head.x + eyeOffsetX;
+        leftEyeY = snake->head.y + eyeOffsetX;
+        rightEyeX = snake->head.x + SIZE - eyeOffsetX;
+        rightEyeY = snake->head.y + eyeOffsetX;
+    }
+
+    DrawCircle((int)leftEyeX, 
+               (int)leftEyeY, 
+               eyeRadius, 
+               BLACK);
+    DrawCircle((int)rightEyeX, 
+               (int)rightEyeY, 
+               eyeRadius, 
+               BLACK);
 
     for (int i = 0; i < snake->body_size; ++i)
     {
@@ -22,7 +58,7 @@ void draw_snake(struct Snake *snake)
         DrawRectangleRounded(rect,
                              0.3f,
                              20, 
-                             dark_green);
+                             DARKGREEN);
     }
 }
 
