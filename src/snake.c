@@ -4,11 +4,6 @@
 #include "raymath.h"
 #include "include/apple.h"
 
-void clamp(float *val, float minv, float maxv) {
-    if (*val <= minv) { *val = minv; }
-    if (*val >= maxv) { *val = maxv; }
-}
-
 void draw_snake(struct Snake *snake)
 {
     Color dark_green = {2, 125, 47, 255};
@@ -88,27 +83,23 @@ void update_snake(struct Snake *snake)  // Moving the snake
     }
 }
 
-bool movement_snake(struct Snake *snake)
+void movement_snake(struct Snake *snake)
 {
     if (IsKeyPressed(KEY_UP) && snake->direction.y == 0)
     {
         snake->direction = (Vector2){0, -SIZE};
-        return true;
     }
     else if (IsKeyPressed(KEY_DOWN) && snake->direction.y == 0)
     {
         snake->direction = (Vector2){0, SIZE};
-        return true;
     }
     else if (IsKeyPressed(KEY_LEFT) && snake->direction.x == 0)
     {
         snake->direction = (Vector2){-SIZE, 0};
-        return true;
     }
     else if (IsKeyPressed(KEY_RIGHT) && snake->direction.x == 0)
     {
         snake->direction = (Vector2){SIZE, 0};
-        return true;
     }
     return false;
 }
