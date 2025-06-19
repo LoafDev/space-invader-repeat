@@ -32,21 +32,18 @@ void draw_snake(struct Snake *snake)
 void init_snake(struct Snake *snake)
 {
     // facing up
-    snake->direction = (Vector2){ 0, -SIZE };
+    snake -> direction = (Vector2){ 0, -SIZE };
 
     // Starting at 2 parts
     snake->body = (Vector2 *) calloc(2, sizeof(Vector2));
     snake->body_size = 2;
 
     // Two body parts in the middle of the window
+    
+    snake->head = (Vector2){WIDTH / 2 - SIZE / 2, HEIGHT / 2 - SIZE / 2};
     for (int i=0; i < snake->body_size; i++) {
-        snake->body[i] = (Vector2){ 432, 432 + i * SIZE };
+        snake->body[i] = (Vector2){ snake->head.x, snake->head.y + i * SIZE };
     }
-
-    // Two body parts in the middle of the window
-    snake->head = (Vector2){WIDTH / 2. - SIZE / 2., HEIGHT / 2. - SIZE / 2};
-    snake->body[0] = (Vector2){snake->head.x, snake->head.y + 2*SIZE};  // Initial body part above the head
-    snake->body[1] = (Vector2){snake->head.x, snake->head.y + SIZE};  // Initial body part below the head
 }
 
 void normal_movement(struct Snake *snake) {
