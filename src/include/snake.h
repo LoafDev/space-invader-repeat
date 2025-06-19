@@ -2,6 +2,8 @@
 #define SNAKE_H
 
 #include "raylib.h"
+#include "apple.h"
+
 struct Snake
 {
     Vector2 direction;
@@ -14,5 +16,7 @@ void init_snake(struct Snake *snake);
 void draw_snake(struct Snake *snake);
 void update_snake(struct Snake *snake);
 void movement_snake(struct Snake *snake);
+void clamp(float *val, float minv, float maxv);
+void expand_snake(struct Snake *snake);
 
 #endif

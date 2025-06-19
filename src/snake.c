@@ -1,6 +1,13 @@
 #include "include/entry.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "raymath.h"
+#include "include/apple.h"
+
+void clamp(float *val, float minv, float maxv) {
+    if (*val <= minv) { *val = minv; }
+    if (*val >= maxv) { *val = maxv; }
+}
 
 void draw_snake(struct Snake *snake)
 {
@@ -116,4 +123,11 @@ void DebugSnake(struct Snake *snake)
         printf("Body part %d position: (%.2f, %.2f)\n", i, snake->body[i].x, snake->body[i].y);
     }
     printf(" ");
+}
+
+void expand_snake(struct Snake *snake)
+{
+    snake->body = (Vector2 *) realloc(snake->body, snake->body_size + 1);
+    snake->body[snake->body_size] = Vector2Add(snake->body[snake->body_size - 1], (Vector2){-1 * snake->direction.x, -1 * snake->direction.y});
+    ++(snake->body_size);
 }

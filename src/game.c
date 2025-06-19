@@ -26,10 +26,10 @@ int main()
     GameScreen currentScreen = LOGO;
 
     init_snake(&snake);
+    get_random_position_apple(&apple);
 
     while (!WindowShouldClose())
     {
-
         if (IsKeyPressed(KEY_P)) {
             Is_Paused = !Is_Paused;
         }
