@@ -15,11 +15,12 @@ void draw_apple(struct Apple *apple)
     DrawRectangleRounded(rect, 0.3, 20, red);
 }
 
-void is_eaten(struct Apple *apple, struct Snake *snake)
+void snake_eats_apple(struct Apple *apple, struct Snake *snake)
 {
     if (CheckCollisionPointRec(snake->head, (Rectangle){apple->x, apple->y, SIZE, SIZE}))
     {
         get_random_position_apple(apple);
+        expand_snake(snake);
     }
 }
 
