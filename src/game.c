@@ -1,11 +1,6 @@
 #include "raylib.h"
 #include"include/entry.h"
 
-void clamp(float *val, float minv, float maxv) {
-    if (*val <= minv) { *val = minv; }
-    if (*val >= maxv) { *val = maxv; }
-}
-
 int main()
 {
     InitWindow(WIDTH, HEIGHT, "Snake");

@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void clamp(float *val, float minv, float maxv) {
+    if (*val <= minv) { *val = minv; }
+    if (*val >= maxv) { *val = maxv; }
+}
+
 void draw_snake(struct Snake *snake)
 {
     Color dark_green = {2, 125, 47, 255};
