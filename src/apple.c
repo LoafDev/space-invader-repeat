@@ -4,8 +4,9 @@
 
 void get_random_position_apple(struct Apple *apple)
 {
-    apple->x = GetRandomValue(0, 864);
-    apple->y = GetRandomValue(0, 864);
+    int pos[] = {0, 36, 72, 108, 144, 180, 216, 252, 288, 324, 360, 396, 432, 468, 504, 540, 576, 612, 648, 684, 720, 756, 792, 828, 864};
+    apple->x = pos[GetRandomValue(0, 24)];
+    apple->y = pos[GetRandomValue(0, 24)];
 }
 
 void draw_apple(struct Apple *apple)
