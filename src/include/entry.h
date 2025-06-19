@@ -5,6 +5,7 @@
 #include "snake.h"
 #include "raylib.h"
 #include "gamestate.h"
+#include "raymath.h"
 
 static const float SIZE = 36.0f;
 static const int HEIGHT = 900;

@@ -1,5 +1,6 @@
 #include "include/entry.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 
 void draw_snake(struct Snake *snake)
 {
