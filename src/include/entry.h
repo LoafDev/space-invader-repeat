@@ -3,6 +3,7 @@
 
 #include"apple.h"
 #include"snake.h"
+#include "raylib.h"
 
 typedef enum { MENU= 0, GAMEPLAY, PAUSE, END } GameScreen;
 static const float SIZE = 36.0f;
