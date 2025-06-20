@@ -119,19 +119,19 @@ void update_snake(struct Snake *snake)  // Moving the snake
 
 void movement_snake(struct Snake *snake)
 {
-    if (IsKeyPressed(KEY_UP) && snake->direction.y == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){0, -SIZE})))
+    if ((IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W)) && snake->direction.y == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){0, -SIZE})))
     {
         snake->direction = (Vector2){0, -SIZE};
     }
-    else if (IsKeyPressed(KEY_DOWN) && snake->direction.y == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){0, SIZE})))
+    else if ((IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_S)) && snake->direction.y == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){0, SIZE})))
     {
         snake->direction = (Vector2){0, SIZE};
     }
-    else if (IsKeyPressed(KEY_LEFT) && snake->direction.x == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){-SIZE, 0})))
+    else if ((IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_A)) && snake->direction.x == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){-SIZE, 0})))
     {
         snake->direction = (Vector2){-SIZE, 0};
     }
-    else if (IsKeyPressed(KEY_RIGHT) && snake->direction.x == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){SIZE, 0})))
+    else if ((IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_D)) && snake->direction.x == 0 && !Vector2Equals(snake->body[0], Vector2Add(snake->head, (Vector2){SIZE, 0})))
     {
         snake->direction = (Vector2){SIZE, 0};
     }
