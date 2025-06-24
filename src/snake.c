@@ -67,6 +67,12 @@ void init_snake(struct Snake *snake)
 
     // Starting at 2 parts
     snake->body = (Vector2 *) calloc(2, sizeof(Vector2));
+
+    if (!snake->body)
+    {
+        return;
+    }
+
     snake->body_size = 2;
 
     // Two body parts in the middle of the window
@@ -150,7 +156,16 @@ void DebugSnake(struct Snake *snake)
 }
 
 void expand_snake(struct Snake *snake) {
-    snake->body = (Vector2 *) realloc(snake->body, (snake->body_size + 1) * sizeof(Vector2));
+    int *tmp = (Vector2 *) realloc(snake->body, (snake->body_size + 1) * sizeof(Vector2));
+
+    if (tmp == NULL)
+    {
+        free(snake->body);
+        return;
+    }
+
+    snake->body = tmp;
+
     snake->body[snake->body_size] = snake->body[snake->body_size - 1];
     ++(snake->body_size);
 }
