@@ -156,7 +156,7 @@ void DebugSnake(struct Snake *snake)
 }
 
 void expand_snake(struct Snake *snake) {
-    int *tmp = (Vector2 *) realloc(snake->body, (snake->body_size + 1) * sizeof(Vector2));
+    Vector2 *tmp = (Vector2 *) realloc(snake->body, (snake->body_size + 1) * sizeof(Vector2));
 
     if (tmp == NULL)
     {
